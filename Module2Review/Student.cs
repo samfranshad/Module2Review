@@ -26,7 +26,11 @@ namespace Module2Review
         {
             Grades.AddRange(grades);
         }
-
+        public double CalculateAverageGrade()
+        {
+            double average = Grades.Count > 0 ? Grades.Average() : 0;
+            return average;
+        }
     }
 
 }
