@@ -8,15 +8,14 @@ namespace Module2Review
 {
     public class Student
     {
-        private List<double> grades;
-        public List<double> Grades
-        {
-            get { return grades; }
-            set { grades = value; }
-        }
+        //Properties
+
+        public List<double> Grades { get; set; } = new List<double>();
 
         public string Name { get; set; }
         public int ID { get; set; }
+
+        // Methods for adding grades to list and calculating grade average
 
         public void AddGrade(double grade)
         {
@@ -28,9 +27,16 @@ namespace Module2Review
         }
         public double CalculateAverageGrade()
         {
-            double average = Grades.Count > 0 ? Grades.Average() : 0;
-            return average;
+            double gradeSum = 0;
+            var gradeCount = 0;
+            for (int i = 0; i < Grades.Count; i++)
+            {
+                gradeSum += Grades[i];
+                gradeCount++;
+            }
+            return Math.Round(gradeSum / gradeCount, 2);
         }
+
     }
 
 }
